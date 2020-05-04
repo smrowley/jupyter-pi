@@ -6,8 +6,11 @@ RUN apt-get update && \
     apt-get remove -y npm && \
     apt-get clean && \
     apt-get autoclean && \
-    apt-get autoremove && \
-    pip3 install --upgrade pip && \
-    pip3 install jupyterhub
+    apt-get autoremove
+
+COPY requirements.txt /tmp/
+
+RUN pip3 install --upgrade pip && \
+    pip3 install -r /tmp/requirements.txt --no-cache-dir
 
 CMD [ "jupyterhub" ]
