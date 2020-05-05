@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get remove -y npm && \
     apt-get clean && \
     apt-get autoclean && \
-    apt-get autoremove
+    apt-get autoremove -y
 
 COPY requirements.txt /tmp/
 
